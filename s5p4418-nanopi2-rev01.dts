@@ -42,3 +42,11 @@
 &spi_0 {
 	/delete-node/ fbtft@0;
 };
+
+&i2c_0 {
+
+mcp3428@68 {
+             compatible = "microchip,mcp3428";
+	     reg = <0x68>;
+	     }
+	     };
