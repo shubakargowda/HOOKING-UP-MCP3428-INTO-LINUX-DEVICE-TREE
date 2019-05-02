@@ -38,11 +38,7 @@ i2c_0: i2c@c00a4000 {
 				reg = <0x11>;
 			};
 
-                                mcp3428@68 {
-                                   
-                                         compatible = "microchip,mcp3428";
-                                          reg = <0x68>;
-                                      };
+                               
 		};
     
 Step 4 : Integrate the ADC Chip Driver into the kernel. Following are the two ways to acheive this.
@@ -52,9 +48,12 @@ Step 4 : Integrate the ADC Chip Driver into the kernel. Following are the two wa
 
 Save the Configurations and Recompile the Kernel.
 
- Step 3 : Recompile the Kernel to make changes affected
+ Step 3 : Compile device tree using
  
- make ARCH=arm
+ make ARCH=arm CROSS_COMPILE=arm-cortexa9-linux-gnueabihf- s5p4418-nanopi2-rev01.dtb
+ 
+ Compile kernel using make ARCH=arm 
+ make modules_install
  
  Step 4 : Copy the newly generated zImage and .dtb files into the storage media(/boot directory).
  
